@@ -1,0 +1,73 @@
+div {
+	margin-bottom: 10px;
+	position: relative;
+}
+
+input[type="number"] {
+	width: 100px;
+} 
+
+input+span {
+	padding-right: 30px;
+}
+
+input:invalid+span:after {
+	position: absolute;
+	content: '\274c';
+	padding-left: 5px;
+	color: red;
+}
+
+input:valid+span:after {
+	position: absolute;
+	content: '\2713';
+	padding-left: 5px;
+	color: green;
+}
+
+
+#button {
+	background-color: #3ed017;
+	-moz-border-radius: 28px;
+	-webkit-border-radius: 28px;
+	border-radius: 28px;
+	border: 1px solid #566963;
+	display: inline-block;
+	cursor: pointer;
+	color: white;
+	font-family: Arial;
+	font-size: 17px;
+	padding: 10px 20px;
+	text-decoration: none;
+	text-shadow: 0px 1px 0px #2b665e;
+	background-color: #3ed017;
+	position: relative;
+	top: 1px;
+	cursor: pointer;
+}
+
+#button:disabled {
+	color: white;
+	background-color:gray; 
+	cursor: not-allowed;
+}
+
+@keyframes spinner {
+  to {transform: rotate(360deg);}
+}
+ 
+.spinner:before {
+  content: '';
+  box-sizing: border-box;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 30px;
+  height: 30px;
+  margin-top: -15px;
+  margin-left: -15px;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  border-top-color: #07d;
+  animation: spinner .6s linear infinite;
+}

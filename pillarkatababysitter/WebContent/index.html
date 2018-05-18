@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script src="js/jquery.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+	<form> 
+	Hi! Please enter the date you babysat at:
+	 <input id="date" type="date" oninput="dateEntered()" required> <span id="datevalidity" class="validity" hidden="true"></span>
+	 <br> <br>
+	 <label for="checkin-time">Please enter your start time: (Between 5:00PM and 4:00AM): </label>
+	 <input id="checkin-time" type="datetime-local" name="checkin-time" disabled="disabled" required> <span class="validity"></span>
+	 <br> <br>
+	 <label for="checkout-time"> Please enter your exit time: (Later than your start time and before 4:00AM): 
+ 	 </label> <input id="checkout-time" type="datetime-local" name="checkout-time" disabled="disabled" required> <span class="validity"></span>
+	 <br> <br>
+	 <input type="button" id="button" value="Calculate" onclick="return validate()" href="http://localhost:8080/pillarkatababysitter/rest/calculate/1" disabled="disabled" />
+	 <br><br>
+		<div id="totalSalary"></div>
+		<dialog id="favDialog">
+		<ul id="ul">
+		</ul>
+		<input type="button" value="Close" style="margin-left: 58px" onclick="closeDialog()">
+		</dialog>
+	</form>
+</body>
+</html>
