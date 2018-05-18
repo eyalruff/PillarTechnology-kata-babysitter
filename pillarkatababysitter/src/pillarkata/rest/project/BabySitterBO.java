@@ -76,6 +76,23 @@ public class BabySitterBO {
 		}
 	}
 	
+	//calculate payments between 17 - 20 - $12/hour from start-time to bedtime
+	public Integer calculateDayTimePayment() {
+		if (checkInDate.before(eightPM)) {
+			if (checkOutDate.after(eightPM)) {
+				long diff = ((eightPM.getTime() - checkInDate.getTime()));
+				int totalHours = (int) (diff / (1000 * 60 * 60));
+				return totalHours * 12;
+			} else if (checkOutDate.equals(eightPM) || checkOutDate.before(eightPM)) {
+				long diff = ((checkOutDate.getTime() - checkInDate.getTime()));
+				int totalHours = (int) (diff / (1000 * 60 * 60));
+				return totalHours * 12;
+			}
+		}
+		return 0;
+	}
+
+	
 	public Date getCheckInDate() {
 		return checkInDate;
 	}

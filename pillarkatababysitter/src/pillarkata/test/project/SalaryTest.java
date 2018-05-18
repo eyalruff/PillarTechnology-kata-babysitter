@@ -85,4 +85,11 @@ public class SalaryTest {
 		assertEquals(checkInCalDtTest2, babySitterBOTest2.getCheckInDate());
 		assertEquals(checkOutDtTest2, babySitterBOTest2.getCheckOutDate());
 	}
+	
+	@Test
+	public void daySalaryTest() {
+		assertEquals(new Integer(12), babySitterBOTest1.calculateDayTimePayment());
+		assertEquals(new Integer(36), babySitterBOTest2.calculateDayTimePayment());
+	}
+
 }
