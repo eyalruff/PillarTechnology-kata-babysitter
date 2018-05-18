@@ -91,6 +91,37 @@ public class BabySitterBO {
 		}
 		return 0;
 	}
+	
+	//calculate payments between 20:00 (bedtime time) - 00:00 - $8/hour from bedtime to midnight
+	public Integer calculateBedTimePayment() {
+		if (checkOutDate.after(eightPM) && (checkOutDate.before(midNight) || checkOutDate.equals(midNight))) {
+			if (checkInDate.before(eightPM)) {
+				long diff = ((checkOutDate.getTime() - eightPM.getTime()));
+				int totalHours = (int) (diff / (1000 * 60 * 60));
+				return totalHours * 8;
+			} else if (checkInDate.equals(eightPM) || checkInDate.after(eightPM)) {
+				long diff = ((checkOutDate.getTime() - checkInDate.getTime()));
+				int totalHours = (int) (diff / (1000 * 60 * 60));
+				return totalHours * 8;
+			}
+		}
+
+		if (checkOutDate.equals(midNight) || checkOutDate.after(midNight)) {
+			if (checkInDate.before(eightPM)) {
+				return 32;
+			} else if (checkInDate.equals(midNight) || checkInDate.after(midNight)) {
+				long diff = ((checkOutDate.getTime() - checkInDate.getTime()));
+				int totalHours = (int) (diff / (1000 * 60 * 60));
+				return totalHours * 8;
+			} else if (checkInDate.equals(eightPM) || (checkInDate.after(eightPM) && checkInDate.before(midNight))) {
+				long diff = ((midNight.getTime() - checkInDate.getTime()));
+				int totalHours = (int) (diff / (1000 * 60 * 60));
+				return totalHours * 8;
+			}
+		}
+		return 0;
+	}
+
 
 	
 	public Date getCheckInDate() {

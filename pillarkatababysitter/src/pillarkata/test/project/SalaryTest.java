@@ -91,5 +91,14 @@ public class SalaryTest {
 		assertEquals(new Integer(12), babySitterBOTest1.calculateDayTimePayment());
 		assertEquals(new Integer(36), babySitterBOTest2.calculateDayTimePayment());
 	}
+	
+	@Test
+	public void bedtimeSalaryTest() {
+		assertEquals(new Integer(32), babySitterBOTest1.calculateBedTimePayment());
+		assertEquals(new Integer(24), babySitterBOTest2.calculateBedTimePayment());
+	}
+
+	
+	
 
 }
