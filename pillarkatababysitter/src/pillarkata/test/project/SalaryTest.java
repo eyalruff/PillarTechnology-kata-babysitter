@@ -103,9 +103,10 @@ public class SalaryTest {
 		assertEquals(new Integer(64), babySitterBOTest1.calculateNightTimePayment());
 		assertEquals(new Integer(0), babySitterBOTest2.calculateNightTimePayment());
 	}
-
-
 	
-	
-
+	@Test
+	public void totalSalaryTest() {
+		assertEquals(new Integer(108), babySitterBOTest1.calculateTotalSalary());
+		assertEquals(new Integer(60), babySitterBOTest2.calculateTotalSalary());
+	}
 }

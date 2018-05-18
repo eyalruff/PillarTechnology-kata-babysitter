@@ -135,10 +135,15 @@ public class BabySitterBO {
 		}
 		return 0;
 	}
-
-
-
 	
+	public Integer calculateTotalSalary() {
+		Integer salary = 0;
+		salary = calculateDayTimePayment();
+		salary += calculateBedTimePayment();
+		salary += calculateNightTimePayment();
+		return salary;
+	}
+
 	public Date getCheckInDate() {
 		return checkInDate;
 	}
