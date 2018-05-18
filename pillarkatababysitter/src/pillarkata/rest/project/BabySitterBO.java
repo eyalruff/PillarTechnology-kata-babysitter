@@ -121,6 +121,21 @@ public class BabySitterBO {
 		}
 		return 0;
 	}
+	
+	//calculate payments between 00:00 - 00:04AM - $16/hour from midnight to end of job 
+	public Integer calculateNightTimePayment() {
+		if (checkOutDate.after(midNight) && (checkInDate.equals(midNight) || checkInDate.after(midNight))) {
+			long diff = ((checkOutDate.getTime() - checkInDate.getTime()));
+			int totalHours = (int) (diff / (1000 * 60 * 60));
+			return totalHours * 16;
+		} else if (checkOutDate.after(midNight) && checkInDate.before(midNight)) {
+			long diff = ((checkOutDate.getTime() - midNight.getTime()));
+			int totalHours = (int) (diff / (1000 * 60 * 60));
+			return totalHours * 16;
+		}
+		return 0;
+	}
+
 
 
 	
