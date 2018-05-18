@@ -1,6 +1,6 @@
 # PillarTechnology-kata-babysitter
 Hi - 
-This is a Java web application project. in order to run it you can download it and open it as a dynamic web project. I used Tomcat 7.0 to run this project on.
+This is a Java web application project. in order to run it you can download it and open it as a dynamic web project. I used Tomcat 7.0 to run this project on. (please make sure you run it on a local server otherwise a CORS issue might occur).
 
 - Once you'll run the project the index web page will show
 
